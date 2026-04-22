@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ノーサイド八尾SPA - 児童発達支援・放課後等デイサービス</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E07A5F',
+                        secondary: '#81B29A',
+                        background: '#FDFBF7',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', 'Arial', 'Hiragino Sans', 'Meiryo', sans-serif;
+            background-color: #FDFBF7;
+        }
+        .slider {
+            position: relative;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slide {
+            min-width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+        }
+        .dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .dot.active {
+            background-color: #E07A5F;
+        }
+        .accordion {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+        .accordion-header {
+            background-color: #f9f9f9;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+        .accordion-content {
+            display: none;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- ヘッダー -->
+    <header class="bg-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-primary">総合福祉施設ノーサイド</div>
+            <nav class="hidden md:flex space-x-4">
+                <a href="#" class="text-gray-600 hover:text-primary">ホーム</a>
+                <a href="#" class="text-gray-600 hover:text-primary">施設紹介</a>
+                <a href="#" class="text-gray-600 hover:text-primary">お問い合わせ</a>
+            </nav>
+            <button class="md:hidden text-gray-600">☰</button>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 py-8 text-center">
+            <h1 class="text-4xl font-bold text-primary mb-2">ノーサイド八尾SPA</h1>
+            <p class="text-xl text-gray-600">児童発達支援・放課後等デイサービス（重心）</p>
+        </div>
+    </header>
+
+    <!-- メインビジュアル / 画像スライダー -->
+    <section class="max-w-6xl mx-auto px-4 py-8">
+        <div class="slider rounded-2xl overflow-hidden shadow-lg">
+            <div class="slides" id="slides">
+                <div class="slide" style="background-image: url('https://placehold.co/800x400/81B29A/FFFFFF?text=HYGGE%E3%81%AA%E7%A9%BA%E9%96%93+1');"></div>
+                <div class="slide" style="background-image: url('https://placehold.co/800x400/E07A5F/FFFFFF?text=%E5%85%A5%E6%B5%B4%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9+2');"></div>
+                <div class="slide" style="background-image: url('https://placehold.co/800x400/81B29A/FFFFFF?text=%E4%B8%93%E9%96%80%E3%82%B9%E3%82%BF%E3%83%83%E3%83%95+3');"></div>
+                <div class="slide" style="background-image: url('https://placehold.co/800x400/E07A5F/FFFFFF?text=%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88+4');"></div>
+                <div class="slide" style="background-image: url('https://placehold.co/800x400/81B29A/FFFFFF?text=%E6%89%8B%E4%BD%9C%E3%82%8A%E9%81%8A%E5%85%B7+5');"></div>
+                <div class="slide" style="background-image: url('https://placehold.co/800x400/E07A5F/FFFFFF?text=%E3%83%AA%E3%83%A9%E3%83%83%E3%82%AF%E3%82%B9+6');"></div>
+                <div class="slide" style="background-image: url('https://placehold.co/800x400/81B29A/FFFFFF?text=%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E7%99%BA%E4%BF%A1+7');"></div>
+                <div class="slide" style="background-image: url('https://placehold.co/800x400/E07A5F/FFFFFF?text=%E4%B8%93%E5%88%A5%E3%81%AA%E7%A9%BA%E9%96%93+8');"></div>
+            </div>
+            <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-75 rounded-full p-2" id="prev">&larr;</button>
+            <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-75 rounded-full p-2" id="next">&rarr;</button>
+        </div>
+        <div class="dots" id="dots"></div>
+    </section>
+
+    <!-- 概要 / 送迎対応エリア -->
+    <section class="max-w-6xl mx-auto px-4 py-8">
+        <h2 class="text-3xl font-bold text-center mb-6">概要 / 送迎対応エリア</h2>
+        <div class="bg-white rounded-2xl p-6 shadow-md">
+            <ul class="list-disc list-inside mb-4">
+                <li>八尾市</li>
+                <li>東大阪市</li>
+                <li>その他近隣自治体（相談可）</li>
+            </ul>
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded">
+                <p>送迎相談可。支援学校のお迎え対応も可能です。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 施設の特徴 -->
+    <section class="max-w-6xl mx-auto px-4 py-8">
+        <h2 class="text-3xl font-bold text-center mb-6">施設の特徴</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-2xl p-6 shadow-md text-center">
+                <h3 class="text-xl font-bold mb-4">入浴サービス</h3>
+                <p>平日毎日実施、ストレッチャー対応。</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-md text-center">
+                <h3 class="text-xl font-bold mb-4">専門スタッフとイベント</h3>
+                <p>ST、音楽療育、FBMリハビリ、アートイベント。</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-md text-center">
+                <h3 class="text-xl font-bold mb-4">HYGGEな空間づくり</h3>
+                <p>手作り遊具、リラックス環境、インスタ発信。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 詳細説明文エリア -->
+    <section class="max-w-6xl mx-auto px-4 py-8">
+        <h2 class="text-3xl font-bold text-center mb-6">詳細説明</h2>
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">療育の専門性</div>
+            <div class="accordion-content">
+                <p>当施設では、専門スタッフによる個別療育を提供しています。児童の発達段階に合わせたプログラムを展開し、長期的な視点での支援を行っています。</p>
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">長い視点での療育</div>
+            <div class="accordion-content">
+                <p>障がい児の未来を見据えた療育を重視。日常生活の自立支援から社会参加まで、継続的なサポートを提供します。</p>
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">障がい福祉を前に進める</div>
+            <div class="accordion-content">
+                <p>最新の福祉技術と温かい心で、障がい福祉の進歩に貢献します。地域との連携を強化し、より良い環境を築きます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 施設概要テーブル -->
+    <section class="max-w-6xl mx-auto px-4 py-8">
+        <h2 class="text-3xl font-bold text-center mb-6">施設概要</h2>
+        <table class="w-full bg-white rounded-2xl shadow-md overflow-hidden">
+            <tbody>
+                <tr class="border-b">
+                    <td class="p-4 font-bold">所在地</td>
+                    <td class="p-4">大阪府八尾市○○○○</td>
+                </tr>
+                <tr class="border-b">
+                    <td class="p-4 font-bold">TEL</td>
+                    <td class="p-4"><a href="tel:012-345-6789" class="text-primary">012-345-6789</a></td>
+                </tr>
+                <tr class="border-b">
+                    <td class="p-4 font-bold">FAX</td>
+                    <td class="p-4">012-345-6790</td>
+                </tr>
+                <tr class="border-b">
+                    <td class="p-4 font-bold">Email</td>
+                    <td class="p-4"><a href="mailto:info@no-side-kaigo.com" class="text-primary">info@no-side-kaigo.com</a></td>
+                </tr>
+                <tr class="border-b">
+                    <td class="p-4 font-bold">営業時間</td>
+                    <td class="p-4">平日 9:00-18:00</td>
+                </tr>
+                <tr>
+                    <td class="p-4 font-bold">定員</td>
+                    <td class="p-4">20名</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- お問い合わせセクション -->
+    <section class="max-w-6xl mx-auto px-4 py-8 text-center">
+        <h2 class="text-3xl font-bold mb-6">お問い合わせ</h2>
+        <button class="bg-primary text-white px-8 py-4 rounded-full text-lg font-bold shadow-lg hover:bg-opacity-90">お問い合わせはこちら</button>
+    </section>
+
+    <!-- フッター -->
+    <footer class="bg-gray-100 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>&copy; 2023 総合福祉施設ノーサイド. All rights reserved.</p>
+            <p>※このページはデモンストレーション用です。実際の連絡先としては機能しません。</p>
+            <nav class="mt-4">
+                <a href="#" class="text-gray-600 hover:text-primary mx-2">プライバシーポリシー</a>
+                <a href="#" class="text-gray-600 hover:text-primary mx-2">利用規約</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
